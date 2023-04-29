@@ -10,22 +10,22 @@ div {
 @media(min-width: 576px) {
     #imgPerfil {
         position: absolute;
-        width: 12%;
+        width: 250px;
         border-radius: 100%;
         box-shadow: 3px 3px 3px grey;
         left: 4%;
-        top: 611px;
+        top: 75%;
     }
 }
 
-@media(max-width: 576px) {
+@media(max-width: 575px) {
     #imgPerfil {
         position: absolute;
-        width: 25%;
+        left: 36%;
+        top: 90%;
+        width: 130px;
         border-radius: 100%;
         box-shadow: 3px 3px 3px grey;
-        left: 38%;
-        top: 610px;
     }
 }
 

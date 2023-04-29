@@ -1,0 +1,11 @@
+.study {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    row-gap: 10px;
+    background-color: #a1b5cb;
+}
+
+#ListaEstudios {
+    width: 80%;
+}
