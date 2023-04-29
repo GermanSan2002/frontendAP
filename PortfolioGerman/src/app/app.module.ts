@@ -15,6 +15,7 @@ import { HardSoftSkillsComponent } from './components/hard-soft-skills/hard-soft
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HysComponent } from './components/hys/hys.component';
+import { ProyectosComponent } from './components/proyectos/proyectos.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HysComponent } from './components/hys/hys.component';
     EstudiosComponent,
     EXPyESTComponent,
     HardSoftSkillsComponent,
-    HysComponent
+    HysComponent,
+    ProyectosComponent
   ],
   imports: [
     BrowserModule,
