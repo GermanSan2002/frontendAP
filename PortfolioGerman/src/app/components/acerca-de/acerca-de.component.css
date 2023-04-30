@@ -10,20 +10,20 @@ div {
 @media(min-width: 576px) {
     #imgPerfil {
         position: absolute;
-        width: 250px;
+        width: 15%;
         border-radius: 100%;
         box-shadow: 3px 3px 3px grey;
         left: 4%;
-        top: 75%;
+        top: 70%;
     }
 }
 
 @media(max-width: 575px) {
     #imgPerfil {
         position: absolute;
-        left: 36%;
+        left: 30%;
         top: 90%;
-        width: 130px;
+        width: 40%;
         border-radius: 100%;
         box-shadow: 3px 3px 3px grey;
     }
