@@ -9,7 +9,7 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./acerca-de.component.css']
 })
 export class AcercaDeComponent implements OnInit {
-  persona: persona = new persona("", "", "", "");
+  persona!: persona;
 
   constructor(public pesonaService: PersonaService, private tokenService: TokenService) { }
 
@@ -25,7 +25,11 @@ export class AcercaDeComponent implements OnInit {
   }
 
   cargarPersona(): void {
-    this.pesonaService.detail(1).subscribe(data => { this.persona = data });
+    this.pesonaService.detail(1).subscribe(
+      (data: persona) => {
+        this.persona = data;
+      }
+    );
   }
 
 }

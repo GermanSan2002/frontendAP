@@ -1,30 +1,42 @@
 <div class="row study">
-    <h1 id="Titulo">Estudios</h1>
+    <div class="row">
+        <h1 id="Titulo">Estudios</h1>
+        <button type="button" class="btn btn-primary mx-auto mb-3" style="width: fit-content;" *ngIf="isAdmin"
+            routerLink="/nuevoEst">Agregar
+            estudio</button>
+    </div>
+
     <div id="ListaEstudios" class="d-flex">
         <div class="overflow-auto mx-auto" style="height: 600px">
-            <div class="col-md-8 mx-auto">
-                <div class="card">
-                    <div class="card-header">
-                        Featured
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
+            <div *ngFor="let est of estudios">
+                <ng-container *ngTemplateOutlet="estTemplate ; context: {$implicit: est}">
+                </ng-container>
             </div>
-            <div class="col-md-8 mx-auto">
-                <div class="card">
-                    <div class="card-header">
-                        Featured
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+    <ng-template #estTemplate let-est>
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    {{est.inicioE}} - {{est.finalE}}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{est.nombreE}}</h5>
+                    <h6 class="card-subtitle">{{est.institucionE}}</h6>
+                    <br>
+                    <p class="card-text">{{est.descripcionE}}</p>
+                    <div class="row">
+                        <div class="col-auto align-self-start">
+                            <button type="button" class="btn btn-primary" *ngIf="isAdmin"
+                                routerLink="/editEst/{{est.id}}" style="width: fit-content;">Editar</button>
+                        </div>
+                        <div class="col-auto align-self-start ml-auto">
+                            <button type="button" class="btn btn-primary" *ngIf="isAdmin" style="width: fit-content;"
+                                (click)="borrarEst(est.id)">Borrar</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </ng-template>

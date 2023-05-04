@@ -1,31 +1,43 @@
 <div class="row experiences">
-    <h1 id="Titulo">Experiencias Laborales</h1>
+    <div class="row">
+        <h1 id="Titulo">Experiencias Laborales</h1>
+        <button type="button" class="btn btn-primary mx-auto mb-3" style="width: fit-content;" *ngIf="isAdmin"
+            routerLink="/nuevaExp">Agregar
+            experiencia</button>
+    </div>
+
     <div id="ListaExperiencias" class="d-flex">
         <div class="overflow-auto mx-auto" style="height: 600px">
-            <div class="col-md-8 mx-auto">
-                <div class="card">
-                    <div class="card-header">
-                        Featured
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
+            <div *ngFor="let exp of experiencias">
+                <ng-container *ngTemplateOutlet="expTemplate ; context: {$implicit: exp}">
+                </ng-container>
             </div>
-            <div class="col-md-8 mx-auto">
-                <div class="card">
-                    <div class="card-header">
-                        Featured
+        </div>
+    </div>
+</div>
+
+<ng-template #expTemplate let-exp>
+    <div id="exp" class="col-md-8 mx-auto">
+        <div class="card col-md-12">
+            <div class="card-header">
+                {{exp.inicioE}} - {{exp.finalE}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{exp.nombreE}}</h5>
+                <h6 class="card-subtitle">{{exp.empresaE}}</h6>
+                <br>
+                <p class="card-text">{{exp.descripcionE}}</p>
+                <div class="row">
+                    <div class="col-auto align-self-start">
+                        <button type="button" class="btn btn-primary" *ngIf="isAdmin" routerLink="/editExp/{{exp.id}}"
+                            style="width: fit-content;">Editar</button>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="col-auto align-self-start ml-auto">
+                        <button type="button" class="btn btn-primary" *ngIf="isAdmin" style="width: fit-content;"
+                            (click)="borrarExp(exp.id)">Borrar</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</ng-template>

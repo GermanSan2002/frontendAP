@@ -8,7 +8,7 @@ import { persona } from '../model/persona.model';
   providedIn: 'root'
 })
 export class PersonaService {
-  URL = 'http://localhost:8080/personas/';
+  URL = 'http://localhost:8080/pesonas/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,7 +17,7 @@ export class PersonaService {
   }
 
   public detail(id: number): Observable<persona> {
-    return this.httpClient.get<persona>(this.URL + `detail/${id}`);
+    return this.httpClient.get<persona>(this.URL + 'detail/' + id);
   }
 
   /*public save(persona: persona): Observable<any> {
@@ -25,7 +25,7 @@ export class PersonaService {
   }*/
 
   public update(id: number, persona: persona): Observable<any> {
-    return this.httpClient.put<any>(this.URL + `update/${id}`, persona);
+    return this.httpClient.put<any>(this.URL + 'update/${id}', persona);
   }
 
   /*public delete(id: number): Observable<any> {

@@ -1,0 +1,26 @@
+<div class="container">
+    <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+
+        <h1>Crear nueva experiencia</h1>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" id="nombreE" name="nombreE" [(ngModel)]="nombreE" required>
+
+        <label for="apellido">Empresa:</label>
+        <input type="text" class="form-control" id="empresaE" name="empresaE" [(ngModel)]="empresaE" required>
+
+        <label for="descripcion">Descripcion:</label>
+        <textarea id="descripcionE" class="form-control" name="descripcionE" [(ngModel)]="descripcionE"
+            required></textarea>
+
+        <label for="img">Año de inicio:</label>
+        <input type="text" class="form-control" id="inicioE" name="inicioE" [(ngModel)]="inicioE" required>
+
+        <label for="img">Año de final:</label>
+        <input type="text" class="form-control" id="finalE" name="finalE" [(ngModel)]="finalE" required>
+
+        <br>
+
+        <button type="submit">Crear</button>
+    </form>
+</div>
