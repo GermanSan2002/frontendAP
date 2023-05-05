@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Estudio } from '../model/estudio';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SEstudioService {
-  URL = 'http://localhost:8080/estlab/';
+  URL = environment.URL + 'estlab/';
 
   constructor(private httpClient: HttpClient) { }
 
