@@ -29,6 +29,12 @@ import { EditExperienciaComponent } from './components/experiencias/edit-experie
 import { NuevaExperienciaComponent } from './components/experiencias/nueva-experiencia/nueva-experiencia.component';
 import { AgregarEstComponent } from './components/estudios/agregar-est/agregar-est.component';
 import { EditEstComponent } from './components/estudios/edit-est/edit-est.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { AddHysComponent } from './components/hys/add-hys/add-hys.component';
+import { EditHysComponent } from './components/hys/edit-hys/edit-hys.component';
+import { NewProyectoComponent } from './components/proyectos/new-proyecto/new-proyecto.component';
 
 
 @NgModule({
@@ -52,14 +58,19 @@ import { EditEstComponent } from './components/estudios/edit-est/edit-est.compon
     EditExperienciaComponent,
     NuevaExperienciaComponent,
     AgregarEstComponent,
-    EditEstComponent
+    EditEstComponent,
+    AddHysComponent,
+    EditHysComponent,
+    NewProyectoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgCircleProgressModule.forRoot({}),
-    HttpClientModule
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
   ],
   providers: [
     interceptorProvider

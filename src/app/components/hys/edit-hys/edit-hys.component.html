@@ -1,0 +1,14 @@
+<div class="container" *ngIf="hysLab">
+    <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+        <h1>Crear nueva habilidad</h1>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" id="nombreE" name="nombre" [(ngModel)]="hysLab.nombre" required>
+
+        <label for="porcentaja">Porcentaje:</label>
+        <input type="text" class="form-control" id="finalE" name="porcentaje" [(ngModel)]="hysLab.porcentaje" required>
+
+        <br>
+        <button type="submit">Modificar</button>
+    </form>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+    <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+
+        <h1>Crear nueva habilidad</h1>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" id="nombreE" name="nombre" [(ngModel)]="nombre" required>
+
+        <label for="porcentaja">Porcentaje:</label>
+        <input type="text" class="form-control" id="finalE" name="porcentaje" [(ngModel)]="porcentaje" required>
+
+        <br>
+        <button type="submit">Crear</button>
+    </form>
+</div>

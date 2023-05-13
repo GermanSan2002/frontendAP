@@ -2,41 +2,31 @@
     <h1>Proyectos Realizados</h1>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 mt-3">
-                <div class="card mx-auto" style="max-width: 850px; max-height: 250px;">
-                    <div class="card-horizontal">
-                        <div class="img-square-wrapper">
-                            <img class="" src="../../../assets/Encriptador.jpeg" alt="Card image cap"
-                                style="width: fit-content; max-height: max-content;">
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">Proyecto 1</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <a href="" class="btn btn-primary">Codigo</a>
-                                <a href="" class="btn btn-secondary">Pagina</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mx-auto" style="max-width: 850px; max-height: 250px;">
-                    <div class="card-horizontal">
-                        <div class="img-square-wrapper">
-                            <img class="" src="../../../assets/Encriptador.jpeg" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">Proyecto 1</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <a href="" class="btn btn-primary">Codigo</a>
-                                <a href="" class="btn btn-secondary">Pagina</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-12 mt-3" *ngFor="let p of proy">
+                <ng-container *ngTemplateOutlet="proyectoTemplate ; context: {$implicit: p}">
+                </ng-container>
             </div>
         </div>
     </div>
 </div>
+
+<ng-template #proyectoTemplate let-p>
+    <div class="card mx-auto" style="max-width: 850px; max-height: 250px;">
+        <div class="card-horizontal">
+            <div class="card-body">
+                <h4 class="card-title">{{p.nombre}}</h4>
+                <p class="card-text">{{p.descripcion}}</p>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a href="p.linkCode" class="btn btn-primary">Codigo</a>
+                    <a href="p.linkDemo" class="btn btn-secondary">Pagina</a>
+                    <!--
+                        <button type="button" class="btn btn-secondary" *ngIf="isAdmin"
+                        routerLink="/editHys/{{p.id}}">Editar</button>
+                    -->
+                    <button type="button" class="btn btn-secondary" *ngIf="isAdmin"
+                        (click)="borrarProy(p.id)">Borrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

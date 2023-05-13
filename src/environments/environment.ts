@@ -3,8 +3,23 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-    production: false,
-    URL: 'http://localhost:8080/'
+  firebase: {
+    projectId: 'portfolioap-ac61e',
+    appId: '1:515363449359:web:a9655ad8772ec7ebf5917a',
+    storageBucket: 'portfolioap-ac61e.appspot.com',
+    locationId: 'us-central',
+    apiKey: 'AIzaSyBl9AhwH-FzsaaKW7_Y-w3tr4SNJuq__7Q',
+    authDomain: 'portfolioap-ac61e.firebaseapp.com',
+    messagingSenderId: '515363449359',
+  },
+  /* Produccion */
+
+  production: true,
+  URL: 'https://backendap-ur2q.onrender.com'
+
+  /* Prueba */
+  //production: false,
+  //URL: 'http://localhost:8080/',
 };
 
 /*

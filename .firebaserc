@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "portfolioap-ac61e"
+  },
+  "targets": {
+    "portfolioap-ac61e": {
+      "hosting": {
+        "PortfolioGerman": [
+          "portfolioap-ac61e"
+        ]
+      }
+    }
   }
 }

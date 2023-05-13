@@ -1,66 +1,31 @@
 <div class="row">
-    <h1>Hard and Soft Skills</h1>
-    <div class="text-center col-sm-4 col-md-4 cpl-lg-4">
-        <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8"
-            [imageSrc]="'../assets/html.png'" [showImage]="true" [imageHeight]="90" [imageWidth]="90"
-            [showSubtitle]="false" [showUnits]="false" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"
-            [animation]="true" [animationDuration]="500">
-        </circle-progress>
+    <div class="row">
+        <h1 id="Titulo">Habilidades</h1>
+        <button type="button" class="btn btn-primary mx-auto mb-3" style="width: fit-content;" *ngIf="isAdmin"
+            routerLink="/nuevaHab">Agregar
+            habilidad</button>
     </div>
-    <div class="text-center col-sm-4 col-md-4 cpl-lg-4">
-        <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8"
-            [imageSrc]="'../assets/CSS.png'" [showImage]="true" [imageHeight]="90" [imageWidth]="90"
-            [showSubtitle]="false" [showUnits]="false" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"
-            [animation]="true" [animationDuration]="500">
-        </circle-progress>
-    </div>
-    <div class="text-center col-sm-4 col-md-4 cpl-lg-4">
-        <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8"
-            [imageSrc]="'../assets/js.png'" [showImage]="true" [imageHeight]="90" [imageWidth]="90"
-            [showSubtitle]="false" [showUnits]="false" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"
-            [animation]="true" [animationDuration]="500">
-        </circle-progress>
-    </div>
-    <div class="text-center col-sm-4 col-md-4 cpl-lg-4">
-        <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8"
-            [imageSrc]="'../assets/java.png'" [showImage]="true" [imageHeight]="90" [imageWidth]="90"
-            [showSubtitle]="false" [showUnits]="false" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"
-            [animation]="true" [animationDuration]="500">
-        </circle-progress>
-    </div>
-    <div class="text-center col-sm-4 col-md-4 cpl-lg-4">
-        <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8"
-            [imageSrc]="'../assets/C.png'" [showImage]="true" [imageHeight]="90" [imageWidth]="90"
-            [showSubtitle]="false" [showUnits]="false" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"
-            [animation]="true" [animationDuration]="500">
-        </circle-progress>
-    </div>
-    <div class="text-center col-sm-4 col-md-4 cpl-lg-4">
-        <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8"
-            [imageSrc]="'../assets/Python.png'" [showImage]="true" [imageHeight]="90" [imageWidth]="90"
-            [showSubtitle]="false" [showUnits]="false" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"
-            [animation]="true" [animationDuration]="500">
-        </circle-progress>
-    </div>
-    <div class="text-center col-sm-4 col-md-4 cpl-lg-4">
-        <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8"
-            [imageSrc]="'../assets/eng.png'" [showImage]="true" [imageHeight]="90" [imageWidth]="90"
-            [showSubtitle]="false" [showUnits]="false" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"
-            [animation]="true" [animationDuration]="500">
-        </circle-progress>
-    </div>
-    <div class="text-center col-sm-4 col-md-4 cpl-lg-4">
-        <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8"
-            [imageSrc]="'../assets/grupal.png'" [showImage]="true" [imageHeight]="90" [imageWidth]="90"
-            [showSubtitle]="false" [showUnits]="false" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"
-            [animation]="true" [animationDuration]="500">
-        </circle-progress>
-    </div>
-    <div class="text-center col-sm-4 col-md-4 cpl-lg-4">
-        <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8"
-            [imageSrc]="'../assets/git.png'" [showImage]="true" [imageHeight]="90" [imageWidth]="90"
-            [showSubtitle]="false" [showUnits]="false" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"
-            [animation]="true" [animationDuration]="500">
-        </circle-progress>
+
+    <div class="text-center col-sm-4 col-md-4 cpl-lg-4" *ngFor="let hs of hys">
+        <ng-container *ngTemplateOutlet="hysTemplate ; context: {$implicit: hs}">
+        </ng-container>
     </div>
 </div>
+
+<ng-template #hysTemplate let-skill>
+    <circle-progress [percent]="(skill.porcentaje)" [radius]="90" [imageSrc]="''" [title]="(skill.nombre)"
+        [titleColor]="'#212F3C'" [showTitle]="true" [showImage]="false" [imageHeight]="70" [imageWidth]="70"
+        [showUnits]="false" [showSubtitle]="false" [outerStrokeWidth]="16" [innerStrokeWidth]="2"
+        [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="600">
+    </circle-progress>
+    <div class="row">
+        <div class="col-auto align-self-start mx-auto">
+            <button type="button" class="btn btn-primary" *ngIf="isAdmin" style="width: fit-content;"
+                routerLink="/editHys/{{skill.id}}">Editar</button>
+        </div>
+        <div class="col-auto align-self-start mx-auto">
+            <button type="button" class="btn btn-primary" *ngIf="isAdmin" style="width: fit-content;"
+                (click)="borrarHys(skill.id)">Borrar</button>
+        </div>
+    </div>
+</ng-template>
