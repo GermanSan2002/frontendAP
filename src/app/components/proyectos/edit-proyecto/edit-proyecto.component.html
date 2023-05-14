@@ -1,0 +1,24 @@
+<div class="container" *ngIf="expProy">
+    <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+
+        <h1>Editar experiencia</h1>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="expProy.nombre" required>
+
+        <label for="descripcion">Descripcion:</label>
+        <textarea id="descripcion" class="form-control" name="descripcion" [(ngModel)]="expProy.descripcion"
+            required></textarea>
+
+        <label for="apellido">Link del codigo del proyecto:</label>
+        <input type="text" class="form-control" id="linkCode" name="linkCode" [(ngModel)]="expProy.linkCode" required>
+
+
+        <label for="img">Link del demo del proyecto:</label>
+        <input type="text" class="form-control" id="linkDemo" name="linkDemo" [(ngModel)]="expProy.linkDemo" required>
+
+        <br>
+
+        <button type="submit">Modificar</button>
+    </form>
+</div>

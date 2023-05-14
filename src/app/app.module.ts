@@ -35,6 +35,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AddHysComponent } from './components/hys/add-hys/add-hys.component';
 import { EditHysComponent } from './components/hys/edit-hys/edit-hys.component';
 import { NewProyectoComponent } from './components/proyectos/new-proyecto/new-proyecto.component';
+import { EditProyectoComponent } from './components/proyectos/edit-proyecto/edit-proyecto.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { NewProyectoComponent } from './components/proyectos/new-proyecto/new-pr
     EditEstComponent,
     AddHysComponent,
     EditHysComponent,
-    NewProyectoComponent
+    NewProyectoComponent,
+    EditProyectoComponent
   ],
   imports: [
     BrowserModule,

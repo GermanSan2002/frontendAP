@@ -1,5 +1,10 @@
 <div class="row proyectos">
-    <h1>Proyectos Realizados</h1>
+    <div class="row">
+        <h1 id="Titulo">Proyectos Realizados</h1>
+        <button type="button" class="btn btn-primary mx-auto mb-3" style="width: fit-content;" *ngIf="isAdmin"
+            routerLink="/nuevoProy">Agregar
+            proyecto</button>
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 mt-3" *ngFor="let p of proy">
@@ -17,12 +22,14 @@
                 <h4 class="card-title">{{p.nombre}}</h4>
                 <p class="card-text">{{p.descripcion}}</p>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="p.linkCode" class="btn btn-primary">Codigo</a>
-                    <a href="p.linkDemo" class="btn btn-secondary">Pagina</a>
-                    <!--
-                        <button type="button" class="btn btn-secondary" *ngIf="isAdmin"
-                        routerLink="/editHys/{{p.id}}">Editar</button>
-                    -->
+                    <a *ngIf="p.linkCode" [href]="p.linkCode" class="btn btn-primary">Codigo</a>
+                    <a *ngIf="p.linkDemo" [href]="p.linkDemo" class="btn btn-secondary">Pagina</a>
+                    <a *ngIf="!p.linkCode" routerLink="" class="btn btn-primary">Codigo</a>
+                    <a *ngIf="!p.linkDemo" routerLink="" class="btn btn-secondary">Pagina</a>
+
+                    <button type="button" class="btn btn-secondary" *ngIf="isAdmin"
+                        routerLink="/editProy/{{p.id}}">Editar</button>
+
                     <button type="button" class="btn btn-secondary" *ngIf="isAdmin"
                         (click)="borrarProy(p.id)">Borrar</button>
                 </div>

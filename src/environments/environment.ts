@@ -15,7 +15,7 @@ export const environment = {
   /* Produccion */
 
   production: true,
-  URL: 'https://backendap-ur2q.onrender.com'
+  URL: 'https://backendap-ur2q.onrender.com/'
 
   /* Prueba */
   //production: false,

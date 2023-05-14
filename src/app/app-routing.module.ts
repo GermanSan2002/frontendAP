@@ -9,6 +9,8 @@ import { AgregarEstComponent } from './components/estudios/agregar-est/agregar-e
 import { EditEstComponent } from './components/estudios/edit-est/edit-est.component';
 import { AddHysComponent } from './components/hys/add-hys/add-hys.component';
 import { EditHysComponent } from './components/hys/edit-hys/edit-hys.component';
+import { NewProyectoComponent } from './components/proyectos/new-proyecto/new-proyecto.component';
+import { EditProyectoComponent } from './components/proyectos/edit-proyecto/edit-proyecto.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,7 +21,9 @@ const routes: Routes = [
   { path: 'nuevoEst', component: AgregarEstComponent },
   { path: 'editEst/:id', component: EditEstComponent },
   { path: 'nuevaHab', component: AddHysComponent },
-  { path: 'editHys/:id', component: EditHysComponent }
+  { path: 'editHys/:id', component: EditHysComponent },
+  { path: 'nuevoProy', component: NewProyectoComponent },
+  { path: 'editProy/:id', component: EditProyectoComponent }
 ];
 
 @NgModule({
